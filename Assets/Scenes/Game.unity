@@ -219,6 +219,7 @@ GameObject:
   - component: {fileID: 805849386}
   - component: {fileID: 805849388}
   - component: {fileID: 805849384}
+  - component: {fileID: 805849389}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -240,13 +241,13 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 2
 --- !u!212 &805849386
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -340,3 +341,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.32}
   m_EdgeRadius: 0
+--- !u!114 &805849389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805849383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5d79e2993d56aa4cb6614fd312315c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerRB: {fileID: 805849384}
+  _sensitivity: 2
