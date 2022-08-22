@@ -21,9 +21,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void PlayerMovement() {
-        if(_playerPosition != Vector2.zero) {
-            _playerRB.MovePosition(_playerRB.position + _playerPosition * (_sensitivity * Time.fixedDeltaTime));
-        }
+        _playerRB.velocity = Vector2.right * _playerPosition * _sensitivity;
     }
 
     private void Update() {
