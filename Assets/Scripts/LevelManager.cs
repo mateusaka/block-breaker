@@ -7,10 +7,10 @@ public class LevelManager : MonoBehaviour {
     [SerializeField] private GameObject _player;
     [SerializeField] private GameObject _ball;
 
-    private IEnumerator Start() {
+    /* private IEnumerator Start() {
         yield return new WaitForSeconds(3);
         RestartLevel();
-    }
+    } */
 
     private void RestartLevel() {
         _player.SetActive(false);

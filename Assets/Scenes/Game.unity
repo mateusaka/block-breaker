@@ -2963,8 +2963,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5d79e2993d56aa4cb6614fd312315c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _leftBound: -3
+  _rightBound: 7.5
   _startPosition: {x: 2, y: -4, z: 0}
-  _playerRB: {fileID: 0}
   _sensitivity: 10
 --- !u!1 &854125594
 GameObject:

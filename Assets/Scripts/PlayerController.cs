@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
+    [SerializeField] private float _leftBound;
+    [SerializeField] private float _rightBound;
     [SerializeField] private Vector3 _startPosition;
     [SerializeField] private float _sensitivity;
 
@@ -18,10 +20,10 @@ public class PlayerController : MonoBehaviour {
     public static Action<int> OnLifeChanged;
 
     private void PlayerInput() {
-        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
+        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) && transform.position.x > _leftBound) {
             transform.Translate(Vector2.left * _sensitivity * Time.deltaTime);
         }
-        else if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
+        else if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) && transform.position.x < _rightBound) {
             transform.Translate(Vector2.right * _sensitivity * Time.deltaTime);
         }
     }
