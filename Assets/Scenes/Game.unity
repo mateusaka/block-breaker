@@ -2850,7 +2850,6 @@ GameObject:
   - component: {fileID: 805849387}
   - component: {fileID: 805849386}
   - component: {fileID: 805849388}
-  - component: {fileID: 805849384}
   - component: {fileID: 805849389}
   m_Layer: 0
   m_Name: Player
@@ -2859,27 +2858,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!50 &805849384
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 805849383}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 6
 --- !u!212 &805849386
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2986,7 +2964,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startPosition: {x: 2, y: -4, z: 0}
-  _playerRB: {fileID: 805849384}
+  _playerRB: {fileID: 0}
   _sensitivity: 10
 --- !u!1 &854125594
 GameObject:

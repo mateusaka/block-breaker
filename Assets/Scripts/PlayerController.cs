@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
     [SerializeField] private Vector3 _startPosition;
-    [SerializeField] private Rigidbody2D _playerRB;
     [SerializeField] private float _sensitivity;
 
     private Vector2 _playerPosition;
@@ -20,26 +19,15 @@ public class PlayerController : MonoBehaviour {
 
     private void PlayerInput() {
         if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
-            _playerPosition = Vector2.left;
+            transform.Translate(Vector2.left * _sensitivity * Time.deltaTime);
         }
         else if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
-            _playerPosition = Vector2.right;
+            transform.Translate(Vector2.right * _sensitivity * Time.deltaTime);
         }
-        else {
-            _playerPosition = Vector2.zero;
-        }
-    }
-
-    private void PlayerMovement() {
-        _playerRB.velocity = Vector2.right * _playerPosition * _sensitivity;
     }
 
     private void Update() {
         PlayerInput();
-    }
-
-    private void FixedUpdate() {
-        PlayerMovement();
     }
 
     private void OnEnable() {
