@@ -17,7 +17,13 @@ public class BallController : MonoBehaviour {
         _ballRB.AddForce(transform.up * _sensitivity);
     }
 
-    private void Start() {
+    private IEnumerator Start() {
+        enabled = false;
+
+        yield return new WaitUntil(() => Input.anyKey);
+
+        enabled = true;
+
         RandomInitialTrajectory();
     }
 }
