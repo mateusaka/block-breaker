@@ -8,27 +8,29 @@ public class BallController : MonoBehaviour {
     [SerializeField] private float _sensitivity;
 
     private void RandomInitialTrajectory() {
-        float random = Random.Range(-80f, 80f);
+        Debug.Log("chamou random");
+        float random = Random.Range(-60f, 60f);
 
-        while(random > -10f && random < -10f) {
-            random = Random.Range(-80f, 80f);
+        while(random > -25 && random < 25) {
+            random = Random.Range(-60f, 60f);
         }
 
-        transform.rotation = Quaternion.Euler(0, 0, Random.Range(-60f, 60f));
+        transform.rotation = Quaternion.Euler(0, 0, random);
+        Debug.Log(random);
         _ballRB.AddForce(transform.up * _sensitivity);
     }
 
-    private void OnEnable() {
-        transform.position = _startPosition;
-    }
+    private IEnumerator EnableBall() {        
+        _ballRB.velocity = Vector2.zero;
 
-    private IEnumerator Start() {
-        enabled = false;
+        transform.position = _startPosition;
 
         yield return new WaitUntil(() => Input.anyKey);
 
-        enabled = true;
-
         RandomInitialTrajectory();
+    }
+
+    private void OnEnable() {
+        StartCoroutine(EnableBall());
     }
 }

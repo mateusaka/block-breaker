@@ -316,12 +316,12 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0
+  m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 65ff73b6991b2db49b456496eb33b245, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!114 &11224084
 MonoBehaviour:
@@ -3555,6 +3555,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3f0f1bd81a6fae4aba045a2b7352c1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 805849383}
+  _ball: {fileID: 11224079}
 --- !u!1 &1211873894
 GameObject:
   m_ObjectHideFlags: 0
