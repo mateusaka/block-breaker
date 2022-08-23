@@ -4,14 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
+    [SerializeField] private Vector3 _startPosition;
     [SerializeField] private Rigidbody2D _playerRB;
     [SerializeField] private float _sensitivity;
 
     private Vector2 _playerPosition;
 
     // Stats
-    public static int _score = 0;
-    public static int _lifes = 3;
+    public static int Score = 0;
+    public static int Lifes = 3;
 
     // Events
     public static Action<int> OnScoreChanged;
@@ -42,12 +43,14 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void OnEnable() {
+        transform.position = _startPosition;
+
         if(OnScoreChanged != null) {
-            OnScoreChanged(_score);
+            OnScoreChanged(Score);
         }
 
         if(OnLifesChanged != null) {
-            OnLifesChanged(_lifes);
+            OnLifesChanged(Lifes);
         }
     }
 }

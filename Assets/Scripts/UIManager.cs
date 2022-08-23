@@ -7,7 +7,7 @@ public class UIManager : MonoBehaviour {
     [SerializeField] private TMP_Text _scoreText;
     [SerializeField] private TMP_Text _lifesText;
 
-    private void UpdateLife(int lifes) {
+    private void UpdateLifes(int lifes) {
         _lifesText.text = lifes.ToString();
     }
 
@@ -17,11 +17,11 @@ public class UIManager : MonoBehaviour {
 
     private void OnEnable() {
         PlayerController.OnScoreChanged += UpdatePoints;
-        PlayerController.OnLifesChanged += UpdateLife;
+        PlayerController.OnLifesChanged += UpdateLifes;
     }
 
     private void OnDisable() {
         PlayerController.OnScoreChanged -= UpdatePoints;
-        PlayerController.OnLifesChanged -= UpdateLife;
+        PlayerController.OnLifesChanged -= UpdateLifes;
     }
 }
