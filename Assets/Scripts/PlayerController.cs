@@ -12,11 +12,11 @@ public class PlayerController : MonoBehaviour {
 
     // Stats
     public static int Score = 0;
-    public static int Lifes = 3;
+    public static int Life = 3;
 
     // Events
     public static Action<int> OnScoreChanged;
-    public static Action<int> OnLifesChanged;
+    public static Action<int> OnLifeChanged;
 
     private void PlayerInput() {
         if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
@@ -49,8 +49,8 @@ public class PlayerController : MonoBehaviour {
             OnScoreChanged(Score);
         }
 
-        if(OnLifesChanged != null) {
-            OnLifesChanged(Lifes);
+        if(OnLifeChanged != null) {
+            OnLifeChanged(Life);
         }
     }
 }

@@ -4402,7 +4402,7 @@ GameObject:
   - component: {fileID: 1510277378}
   - component: {fileID: 1510277377}
   m_Layer: 5
-  m_Name: LIFES
+  m_Name: LIFE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4448,7 +4448,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'LIFES:'
+  m_text: 'LIFE:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ac6b3886453affd46a0bea1a333b7988, type: 2}
   m_sharedMaterial: {fileID: 21918420405216288, guid: ac6b3886453affd46a0bea1a333b7988, type: 2}

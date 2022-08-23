@@ -7,21 +7,21 @@ public class UIManager : MonoBehaviour {
     [SerializeField] private TMP_Text _scoreText;
     [SerializeField] private TMP_Text _lifesText;
 
-    private void UpdateLifes(int lifes) {
+    private void UpdateLife(int lifes) {
         _lifesText.text = lifes.ToString();
     }
 
-    private void UpdatePoints(int points) {
+    private void UpdateScore(int points) {
         _scoreText.text = points.ToString();
     }
 
     private void OnEnable() {
-        PlayerController.OnScoreChanged += UpdatePoints;
-        PlayerController.OnLifesChanged += UpdateLifes;
+        PlayerController.OnScoreChanged += UpdateScore;
+        PlayerController.OnLifeChanged += UpdateLife;
     }
 
     private void OnDisable() {
-        PlayerController.OnScoreChanged -= UpdatePoints;
-        PlayerController.OnLifesChanged -= UpdateLifes;
+        PlayerController.OnScoreChanged -= UpdateScore;
+        PlayerController.OnLifeChanged -= UpdateLife;
     }
 }
