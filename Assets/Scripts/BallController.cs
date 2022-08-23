@@ -8,7 +8,6 @@ public class BallController : MonoBehaviour {
     [SerializeField] private float _sensitivity;
 
     private void RandomInitialTrajectory() {
-        Debug.Log("chamou random");
         float random = Random.Range(-60f, 60f);
 
         while(random > -25 && random < 25) {
@@ -16,7 +15,6 @@ public class BallController : MonoBehaviour {
         }
 
         transform.rotation = Quaternion.Euler(0, 0, random);
-        Debug.Log(random);
         _ballRB.AddForce(transform.up * _sensitivity);
     }
 
