@@ -4,6 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
+    public static class Config {
+        public const int DEFAULT_START_SCORE = 0;
+        public const int DEFAULT_START_LIFE = 3;
+    }
+
     [SerializeField] private float _leftBound;
     [SerializeField] private float _rightBound;
     [SerializeField] private Vector3 _startPosition;
@@ -12,8 +17,8 @@ public class PlayerController : MonoBehaviour {
     private Vector2 _playerPosition;
 
     // Stats
-    public static int Score = 0;
-    public static int Life = 3;
+    public static int Score = Config.DEFAULT_START_SCORE;
+    public static int Life = Config.DEFAULT_START_LIFE;
 
     // Events
     public static Action<int> OnScoreChanged;

@@ -6,14 +6,29 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour {
     [SerializeField] private GameObject _player;
     [SerializeField] private GameObject _ball;
+    [SerializeField] private GameObject _gameOver;
+
+    public void RestartButton() {
+        _gameOver.SetActive(false);
+
+        _player.SetActive(true);
+        _ball.SetActive(true);
+    }
 
     private void RestartLevel() {
-        if(PlayerController.Life <= 0) {
-            Debug.Log("Game over");
-        }
-
         _player.SetActive(false);
         _ball.SetActive(false);
+
+        if(PlayerController.Life <= 0) {
+            _gameOver.SetActive(true);
+
+            // Export score
+
+            PlayerController.Score = PlayerController.Config.DEFAULT_START_SCORE;
+            PlayerController.Life = PlayerController.Config.DEFAULT_START_LIFE;
+
+            return;
+        }
 
         _player.SetActive(true);
         _ball.SetActive(true);
