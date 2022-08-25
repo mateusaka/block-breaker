@@ -8,6 +8,10 @@ public class LevelManager : MonoBehaviour {
     [SerializeField] private GameObject _ball;
 
     private void RestartLevel() {
+        if(PlayerController.Life <= 0) {
+            Debug.Log("Game over");
+        }
+
         _player.SetActive(false);
         _ball.SetActive(false);
 
