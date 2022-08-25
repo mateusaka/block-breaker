@@ -43,4 +43,14 @@ public class PlayerController : MonoBehaviour {
             OnLifeChanged(Life);
         }
     }
+
+    private void Start() {
+        if(OnScoreChanged != null) {
+            OnScoreChanged(Score);
+        }
+
+        if(OnLifeChanged != null) {
+            OnLifeChanged(Life);
+        }
+    }
 }

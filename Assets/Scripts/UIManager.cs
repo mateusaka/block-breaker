@@ -11,8 +11,8 @@ public class UIManager : MonoBehaviour {
         _lifesText.text = lifes.ToString();
     }
 
-    private void UpdateScore(int points) {
-        _scoreText.text = points.ToString();
+    private void UpdateScore(int score) {
+        _scoreText.text = score.ToString();
     }
 
     private void OnEnable() {
