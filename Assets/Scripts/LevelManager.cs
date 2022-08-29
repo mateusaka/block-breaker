@@ -41,7 +41,11 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void RestartButton() {
-        
+        foreach(var block in _blocks) {
+            if(!block.activeSelf) {
+                block.SetActive(true);
+            }
+        }
 
         _gameOver.SetActive(false);
 
