@@ -12,4 +12,10 @@ public class BlockController : MonoBehaviour {
 
         gameObject.SetActive(false);
     }
+
+    private void OnDisable() {
+        if(LevelManager.OnBlockDestroyed != null) {
+            LevelManager.OnBlockDestroyed();
+        }
+    }
 }

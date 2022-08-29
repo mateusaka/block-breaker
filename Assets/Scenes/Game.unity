@@ -460,7 +460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbbad372600d39f48aa70529d3637e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startPosition: {x: 2, y: -3.3, z: 0}
+  _startPosition: {x: 2.8, y: -3.3, z: 0}
   _ballRB: {fileID: 11224083}
   _sensitivity: 350
 --- !u!1 &16050411
@@ -2785,9 +2785,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5d79e2993d56aa4cb6614fd312315c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _leftBound: -1.8
-  _rightBound: 7.35
-  _startPosition: {x: 2, y: -4, z: 0}
+  _leftBound: -1.7
+  _rightBound: 7.3
+  _startPosition: {x: 2.8, y: -4, z: 0}
   _sensitivity: 10
 --- !u!1 &808917514
 GameObject:
@@ -4371,6 +4371,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3f0f1bd81a6fae4aba045a2b7352c1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _blocks:
+  - {fileID: 2132455633}
+  - {fileID: 1342919901}
+  - {fileID: 1010782831}
+  - {fileID: 678178442}
+  - {fileID: 2116815846}
+  - {fileID: 1360509420}
+  - {fileID: 943038022}
+  - {fileID: 493267966}
+  - {fileID: 811268019}
+  - {fileID: 1621579332}
+  - {fileID: 808917514}
+  - {fileID: 1083024269}
+  - {fileID: 6953187}
+  - {fileID: 1142065746}
+  - {fileID: 1124099327}
+  - {fileID: 71831189}
+  - {fileID: 1010077048}
+  - {fileID: 463506775}
+  - {fileID: 2032653574}
+  - {fileID: 880908459}
+  - {fileID: 16050411}
+  - {fileID: 321636381}
+  - {fileID: 1175345663}
+  - {fileID: 305763470}
+  - {fileID: 173596990}
+  - {fileID: 608053722}
+  - {fileID: 1258552346}
+  - {fileID: 764853750}
   _player: {fileID: 805849383}
   _ball: {fileID: 11224079}
   _gameOver: {fileID: 532067073}
