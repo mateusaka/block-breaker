@@ -4,5 +4,5 @@
 
 * Life System
 * Score System
-* Background Music
+* Background Music (Dance, Don't Delay by http://www.twinmusicom.org/)
 * Final Score Export(txt)
