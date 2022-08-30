@@ -74,6 +74,9 @@ public class LevelManager : MonoBehaviour {
     }
 
     private void OnEnable() {
+        _player.SetActive(true);
+        _ball.SetActive(true);
+
         DeathZoneController.OnDeath += RestartLevel;
         OnBlockDestroyed += BlockDestroyed;
     }

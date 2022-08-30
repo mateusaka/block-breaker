@@ -10,12 +10,14 @@ public class BlockController : MonoBehaviour {
             PlayerController.OnScoreChanged(PlayerController.Score += _blockValue);
         }
 
+        if(LevelManager.OnBlockDestroyed != null) {
+            LevelManager.OnBlockDestroyed();
+        }
+        
         gameObject.SetActive(false);
     }
 
     private void OnDisable() {
-        if(LevelManager.OnBlockDestroyed != null) {
-            LevelManager.OnBlockDestroyed();
-        }
+        
     }
 }
