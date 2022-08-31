@@ -17,6 +17,8 @@ public class DeathZoneController : MonoBehaviour {
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        Death();
+        if(other.gameObject.CompareTag("Ball")) {
+            Death();
+        }        
     }
 }
