@@ -8,3 +8,5 @@
 * Final Score Export(txt)
 * SFX(Large Bubble Rise by https://www.freesfx.co.uk/)
 * Main Menu
+* Power Up Increase
+* Power Up Decrease
