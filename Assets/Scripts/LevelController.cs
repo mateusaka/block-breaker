@@ -17,7 +17,7 @@ public class LevelController : MonoBehaviour {
     [SerializeField] private List<GameObject> _levelBlocks;
     [SerializeField] private Column _setBlocks;
 
-    private void Start() {
+    private void SetBlocks() {
         int k = 0;
         for(int i = 0; i < 4; i++) {
             for(int j = 0; j < 7; j++) {
@@ -25,5 +25,9 @@ public class LevelController : MonoBehaviour {
                 k++;
             }
         }
+    }
+
+    private void OnEnable() {
+        SetBlocks();
     }
 }

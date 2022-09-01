@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private float _sensitivity;
 
     private Vector2 _playerPosition;
+    private bool _enableUpdate;
 
     // Stats
     public static int Level = Config.DEFAULT_START_LEVEL;
@@ -58,7 +59,15 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Update() {
-        PlayerInput();
+        if(_enableUpdate) {
+            PlayerInput();
+        }
+    }
+
+    private IEnumerator EnablePlayer() {
+        _enableUpdate = false;
+        yield return new WaitUntil(() => Input.GetKey(KeyCode.Space));
+        _enableUpdate = true;
     }
 
     private void OnEnable() {
@@ -66,6 +75,8 @@ public class PlayerController : MonoBehaviour {
         transform.localScale = _defaultScale;
 
         SetStartEvents();
+
+        StartCoroutine(EnablePlayer());
     }
 
     private void Start() {

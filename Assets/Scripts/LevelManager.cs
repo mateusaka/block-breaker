@@ -17,6 +17,7 @@ public class LevelManager : MonoBehaviour {
 
     [SerializeField] private LevelList _allBlocks;
     [SerializeField] private List<GameObject> _allLevels;
+    [SerializeField] private List<GameObject> _powerUps;
     [SerializeField] private GameObject _player;
     [SerializeField] private GameObject _ball;
     [SerializeField] private GameObject _gameOver;
@@ -59,6 +60,10 @@ public class LevelManager : MonoBehaviour {
             }
         }
 
+        foreach(var powerup in _powerUps) {
+            powerup.SetActive(false);
+        }
+
         // Win
         if(PlayerController.OnLevelChanged != null) {
             PlayerController.OnLevelChanged(PlayerController.Level += 1);
@@ -91,6 +96,12 @@ public class LevelManager : MonoBehaviour {
         _ball.SetActive(true);
     }
 
+    private void SetDefaultConfig() {
+        PlayerController.Level = PlayerController.Config.DEFAULT_START_LEVEL;
+        PlayerController.Score = PlayerController.Config.DEFAULT_START_SCORE;
+        PlayerController.Life = PlayerController.Config.DEFAULT_START_LIFE;
+    }
+
     private void RestartLevel() {
         _player.SetActive(false);
         _ball.SetActive(false);
@@ -101,9 +112,7 @@ public class LevelManager : MonoBehaviour {
             // Export score
             ScoreExport(PlayerController.Score);
 
-            PlayerController.Level = PlayerController.Config.DEFAULT_START_LEVEL;
-            PlayerController.Score = PlayerController.Config.DEFAULT_START_SCORE;
-            PlayerController.Life = PlayerController.Config.DEFAULT_START_LIFE;
+            SetDefaultConfig();
 
             return;
         }
@@ -113,6 +122,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     private void OnEnable() {
+        SetDefaultConfig();
         NextLevel();
 
         _player.SetActive(true);

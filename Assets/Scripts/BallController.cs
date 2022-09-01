@@ -6,6 +6,7 @@ public class BallController : MonoBehaviour {
     [SerializeField] private Vector3 _startPosition;
     [SerializeField] private Rigidbody2D _ballRB;
     [SerializeField] private float _sensitivity;
+    [SerializeField] private GameObject _pressToStart;
 
     private void RandomInitialTrajectory() {
         float random = Random.Range(-60f, 60f);
@@ -23,7 +24,9 @@ public class BallController : MonoBehaviour {
 
         transform.position = _startPosition;
 
-        yield return new WaitUntil(() => Input.anyKey);
+        _pressToStart.SetActive(true);
+        yield return new WaitUntil(() => Input.GetKey(KeyCode.Space));
+        _pressToStart.SetActive(false);
 
         RandomInitialTrajectory();
     }
