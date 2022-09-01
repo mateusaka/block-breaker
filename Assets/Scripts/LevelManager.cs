@@ -5,10 +5,22 @@ using System.IO;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour {
-    [SerializeField] private List<GameObject> _blocks;
+    [System.Serializable]
+    public class Level {
+        public List<GameObject> blocks;
+    }
+
+    [System.Serializable]
+    public class LevelList {
+        public List<Level> blockList;
+    }
+
+    [SerializeField] private LevelList _allBlocks;
+    [SerializeField] private List<GameObject> _allLevels;
     [SerializeField] private GameObject _player;
     [SerializeField] private GameObject _ball;
     [SerializeField] private GameObject _gameOver;
+    [SerializeField] private GameObject _won;
 
     public static Action OnBlockDestroyed;
 
@@ -25,23 +37,49 @@ public class LevelManager : MonoBehaviour {
         File.AppendAllText(path, score + "\n");
     }
 
+    private void NextLevel() {
+        foreach(var level in _allLevels) {
+            level.SetActive(false);
+        }
+
+        _allLevels[PlayerController.Level - 1].SetActive(true);
+
+        _player.SetActive(false);
+        _ball.SetActive(false);
+
+        _player.SetActive(true);
+        _ball.SetActive(true);
+    }
+
     private void BlockDestroyed() {
-        foreach(var block in _blocks) {
-            if(block.activeSelf) {
+        foreach(var block in _allBlocks.blockList[PlayerController.Level - 1].blocks) {
+            //Debug.Log("bloco: " + block.name + " esta: " + block.activeInHierarchy);
+            if(block.activeInHierarchy) {
                 return;
             }
         }
 
         // Win
-        // Export score
-        _player.SetActive(false);
-        _ball.SetActive(false);
+        if(PlayerController.OnLevelChanged != null) {
+            PlayerController.OnLevelChanged(PlayerController.Level += 1);
+        }
 
-        ScoreExport(PlayerController.Score);
+        if(PlayerController.Level > _allLevels.Count) {
+            _won.SetActive(true);
+
+            // Export score
+            _player.SetActive(false);
+            _ball.SetActive(false);
+
+            ScoreExport(PlayerController.Score);
+        }
+        else {
+            NextLevel();
+        }
     }
 
     public void RestartButton() {
-        foreach(var block in _blocks) {
+        foreach(var block in _allBlocks.blockList[PlayerController.Level - 1].blocks) {
             if(!block.activeSelf) {
                 block.SetActive(true);
             }
@@ -63,6 +101,7 @@ public class LevelManager : MonoBehaviour {
             // Export score
             ScoreExport(PlayerController.Score);
 
+            PlayerController.Level = PlayerController.Config.DEFAULT_START_LEVEL;
             PlayerController.Score = PlayerController.Config.DEFAULT_START_SCORE;
             PlayerController.Life = PlayerController.Config.DEFAULT_START_LIFE;
 
@@ -74,6 +113,8 @@ public class LevelManager : MonoBehaviour {
     }
 
     private void OnEnable() {
+        NextLevel();
+
         _player.SetActive(true);
         _ball.SetActive(true);
 

@@ -10,6 +10,8 @@ public class BlockController : MonoBehaviour {
     public static Action<PowerUpController.PowerUp, Vector3> OnPowerUpSpawned;
 
     private void OnCollisionEnter2D(Collision2D other) {
+        gameObject.SetActive(false);
+        
         if(PlayerController.OnScoreChanged != null) {
             PlayerController.OnScoreChanged(PlayerController.Score += _blockValue);
         }
@@ -30,7 +32,5 @@ public class BlockController : MonoBehaviour {
                     break;
             }
         }
-        
-        gameObject.SetActive(false);
     }
 }
