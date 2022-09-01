@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
     public static class Config {
-        public const int DEFAULT_START_LEVEL = 5;
+        public const int DEFAULT_START_LEVEL = 1;
         public const int DEFAULT_START_SCORE = 0;
         public const int DEFAULT_START_LIFE = 3;
     }
