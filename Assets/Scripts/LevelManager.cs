@@ -84,16 +84,15 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void RestartButton() {
-        foreach(var block in _allBlocks.blockList[PlayerController.Level - 1].blocks) {
+        /* foreach(var block in _allBlocks.blockList[PlayerController.Level - 1].blocks) {
             if(!block.activeSelf) {
                 block.SetActive(true);
             }
-        }
+        } */
+        SetDefaultConfig();
+        NextLevel();
 
         _gameOver.SetActive(false);
-
-        _player.SetActive(true);
-        _ball.SetActive(true);
     }
 
     private void SetDefaultConfig() {
